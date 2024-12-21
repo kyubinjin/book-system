@@ -33,4 +33,15 @@ public class BookService {
     public void deleteBook(Long id) {
         bookRepository.deleteById(id);
     }
+
+    public List<Book> searchBooks(String title, String author) {
+        if (title != null && !title.isEmpty()) {
+            return bookRepository.findByTitleContaining(title);
+        }
+        if (author != null && !author.isEmpty()) {
+            return bookRepository.findByAuthorContaining(author);
+        }
+        return List.of();
+    }
+
 }
