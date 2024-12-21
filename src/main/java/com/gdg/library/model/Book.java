@@ -1,5 +1,6 @@
 package com.gdg.library.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,5 +18,6 @@ public class Book {
     private String title;
     private String author;
     private String isbn;
-    private boolean isAvailable; // 대출 가능 여부
+    @JsonProperty("isAvailable")
+    private boolean isAvailable = true;
 }
